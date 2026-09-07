@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B16"/>
+      <stop offset="30%" stop-color="#0D1527"/>
+      <stop offset="70%" stop-color="#16163A"/>
+      <stop offset="100%" stop-color="#080A14"/>
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.75"/>
+      <stop offset="40%" stop-color="#818CF8" stop-opacity="0.35"/>
+      <stop offset="80%" stop-color="#F59E0B" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#FDE047" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Celestial Ring Gradient -->
+    <linearGradient id="ringGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#F59E0B" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FEF08A" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <!-- Orbit Ellipse Gradient -->
+    <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Cardinal Needles: Light Gold Facet -->
+    <linearGradient id="goldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="25%" stop-color="#FEF08A"/>
+      <stop offset="70%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+
+    <!-- Cardinal Needles: Dark Amber Facet -->
+    <linearGradient id="goldDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="45%" stop-color="#B45309"/>
+      <stop offset="100%" stop-color="#6B21A8"/>
+    </linearGradient>
+
+    <!-- Diagonal Rays: Light Cyan Facet -->
+    <linearGradient id="cyanLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0FDF4"/>
+      <stop offset="30%" stop-color="#67E8F9"/>
+      <stop offset="80%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+
+    <!-- Diagonal Rays: Deep Royal Indigo Facet -->
+    <linearGradient id="cyanDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="50%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <!-- Ambient Core Glow -->
+    <radialGradient id="nebulaGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.4"/>
+      <stop offset="30%" stop-color="#6366F1" stop-opacity="0.22"/>
+      <stop offset="65%" stop-color="#0284C7" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#070B16" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Core Optical Flare -->
+    <radialGradient id="coreFlare" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="20%" stop-color="#FFFBEB" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#FEF08A" stop-opacity="0.7"/>
+      <stop offset="75%" stop-color="#F59E0B" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Drop Shadow -->
+    <filter id="starShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#020617" flood-opacity="0.75"/>
+    </filter>
+  </defs>
+
+  <!-- Container Squircle with Multi-layer Depth -->
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="2.5"/>
+
+  <!-- Ambient Cosmic Nebula Glow -->
+  <circle cx="256" cy="256" r="200" fill="url(#nebulaGlow)"/>
+
+  <!-- Orbital Ellipse: Tilted Celestial Ring -->
+  <ellipse cx="256" cy="256" rx="176" ry="58" fill="none" stroke="url(#orbitGrad)" stroke-width="1.5" stroke-dasharray="140 10 40 8" transform="rotate(-28 256 256)" opacity="0.6"/>
+
+  <!-- Astrolabe Coordinate Rings -->
+  <!-- Outer Dotted Orbit -->
+  <circle cx="256" cy="256" r="182" fill="none" stroke="#38BDF8" stroke-width="1" stroke-dasharray="2 6" opacity="0.35"/>
+  <!-- Main Celestial Golden Ring -->
+  <circle cx="256" cy="256" r="142" fill="none" stroke="url(#ringGrad)" stroke-width="2" opacity="0.88"/>
+  <!-- Inner Guide Track -->
+  <circle cx="256" cy="256" r="106" fill="none" stroke="#818CF8" stroke-width="1" stroke-dasharray="3 7" opacity="0.3"/>
+
+  <!-- Astrolabe Cardinal Nodes -->
+  <circle cx="256" cy="114" r="2.5" fill="#FEF08A"/>
+  <circle cx="256" cy="398" r="2.5" fill="#FEF08A"/>
+  <circle cx="398" cy="256" r="2.5" fill="#FEF08A"/>
+  <circle cx="114" cy="256" r="2.5" fill="#FEF08A"/>
+
+  <!-- 4 Diagonal Diamonds on Golden Ring -->
+  <polygon points="356,156 360,160 356,164 352,160" fill="#38BDF8" opacity="0.85"/>
+  <polygon points="156,156 160,160 156,164 152,160" fill="#38BDF8" opacity="0.85"/>
+  <polygon points="156,356 160,360 156,364 152,360" fill="#38BDF8" opacity="0.85"/>
+  <polygon points="356,356 360,360 356,364 352,360" fill="#38BDF8" opacity="0.85"/>
+
+  <!-- ==================== 4 SECONDARY DIAGONAL RAYS ==================== -->
+  <g filter="url(#starShadow)">
+    <!-- North-East Ray -->
+    <polygon points="329.5,182.5 256,256 270.5,220.9" fill="url(#cyanLight)"/>
+    <polygon points="329.5,182.5 291.1,241.5 256,256" fill="url(#cyanDark)"/>
+
+    <!-- South-East Ray -->
+    <polygon points="329.5,329.5 256,256 291.1,270.5" fill="url(#cyanLight)"/>
+    <polygon points="329.5,329.5 270.5,291.1 256,256" fill="url(#cyanDark)"/>
+
+    <!-- South-West Ray -->
+    <polygon points="182.5,329.5 241.5,291.1 256,256" fill="url(#cyanLight)"/>
+    <polygon points="182.5,329.5 256,256 220.9,270.5" fill="url(#cyanDark)"/>
+
+    <!-- North-West Ray -->
+    <polygon points="182.5,182.5 241.5,220.9 256,256" fill="url(#cyanLight)"/>
+    <polygon points="182.5,182.5 256,256 220.9,241.5" fill="url(#cyanDark)"/>
+  </g>
+
+  <!-- ==================== 4 PRIMARY CARDINAL NEEDLES ==================== -->
+  <g filter="url(#starShadow)">
+    <!-- North Needle (True North / 指南之矢 / 精神升华) -->
+    <polygon points="256.0,74.0 241.5,220.9 256,256" fill="url(#goldLight)"/>
+    <polygon points="256.0,74.0 256,256 270.5,220.9" fill="url(#goldDark)"/>
+    <line x1="256" y1="75" x2="256" y2="256" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- East Needle (Engagement / 入世致用) -->
+    <polygon points="398.0,256.0 291.1,241.5 256,256" fill="url(#goldLight)"/>
+    <polygon points="398.0,256.0 256,256 291.1,270.5" fill="url(#goldDark)"/>
+    <line x1="256" y1="256" x2="396" y2="256" stroke="#FDE047" stroke-width="1" opacity="0.6"/>
+
+    <!-- South Needle (Bedrock / 身心基石) -->
+    <polygon points="256.0,398.0 256,256 270.5,291.1" fill="url(#goldLight)"/>
+    <polygon points="256.0,398.0 241.5,291.1 256,256" fill="url(#goldDark)"/>
+    <line x1="256" y1="256" x2="256" y2="396" stroke="#FDE047" stroke-width="1" opacity="0.6"/>
+
+    <!-- West Needle (Introspection / 内观反省) -->
+    <polygon points="114.0,256.0 220.9,241.5 256,256" fill="url(#goldLight)"/>
+    <polygon points="114.0,256.0 256,256 220.9,270.5" fill="url(#goldDark)"/>
+    <line x1="116" y1="256" x2="256" y2="256" stroke="#FDE047" stroke-width="1" opacity="0.6"/>
+  </g>
+
+  <!-- ==================== CENTRAL ANCHOR (真如锚点 · 金刚之心) ==================== -->
+  <!-- Outer Gold Bezel -->
+  <circle cx="256" cy="256" r="26" fill="#070B16" stroke="url(#goldLight)" stroke-width="2.5" filter="url(#starShadow)"/>
+
+  <!-- Inner Cyan Precision Bezel -->
+  <circle cx="256" cy="256" r="17" fill="none" stroke="#38BDF8" stroke-width="1.5" opacity="0.9"/>
+
+  <!-- Subtle Concentric Void -->
+  <circle cx="256" cy="256" r="11" fill="#16163A"/>
+
+  <!-- Core Radiant Glow Flare -->
+  <circle cx="256" cy="256" r="15" fill="url(#coreFlare)"/>
+
+  <!-- Central Diamond of Pure Awakening (金刚真如自性) -->
+  <polygon points="256,244 263,256 256,268 249,256" fill="#FFFFFF"/>
+  <polygon points="244,256 256,249 268,256 256,263" fill="#FFFFFF"/>
+  <circle cx="256" cy="256" r="2" fill="#FFFBEB"/>
+</svg>

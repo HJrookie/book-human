@@ -1,0 +1,364 @@
+/* ==========================================================================
+   人生探索手记 - 侧边栏与层级视觉规范 (Sidebar & Hierarchy Styling)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 侧边栏整体容器与间距
+   -------------------------------------------------------------------------- */
+.VPSidebar {
+  --vp-sidebar-bg-part: var(--vp-c-bg-alt);
+  --vp-sidebar-border-part: var(--vp-c-divider);
+}
+
+.VPSidebarNav {
+  padding-bottom: 32px !important;
+}
+
+/* 消除 group 之间突兀的硬分割线，改用更加柔和的模块间距 */
+.VPSidebarGroup .group + .group {
+  border-top: none !important;
+  padding-top: 6px !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. 第一层级：「章」(Level 0 - Chapter Group)
+   手风琴折叠栏风格：结构清晰、层级分明、阅读导航一目了然
+   -------------------------------------------------------------------------- */
+.VPSidebarItem.level-0 {
+  padding-bottom: 2px !important;
+  margin-top: 4px;
+}
+
+.VPSidebarItem.level-0:first-child {
+  margin-top: 0;
+}
+
+/* 「章」标题栏容器 */
+.VPSidebarItem.level-0 > .item {
+  background: transparent;
+  border-radius: 6px;
+  border-left: 3px solid transparent;
+  padding: 6px 10px;
+  margin-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+/* 「章」悬浮效果 */
+.VPSidebarItem.level-0 > .item:hover {
+  background: var(--vp-c-default-soft);
+  border-left-color: var(--vp-c-brand-2);
+  transform: translateX(1px);
+}
+
+/* 「章」含有当前激活小节时的状态 */
+.VPSidebarItem.level-0.has-active > .item {
+  background: var(--vp-c-default-soft);
+  border-left-color: var(--vp-c-brand-1);
+}
+
+/* 「章」文字排印 */
+.VPSidebarItem.level-0 > .item .text {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: var(--vp-c-text-1) !important;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  padding: 2px 0;
+}
+
+.VPSidebarItem.level-0.has-active > .item .text {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* 「章」折叠箭头按钮 */
+.VPSidebarItem.level-0 > .item .caret {
+  width: 22px;
+  height: 22px;
+  margin-right: -2px;
+  color: var(--vp-c-text-3);
+  transition: color 0.2s ease;
+}
+
+.VPSidebarItem.level-0 > .item:hover .caret {
+  color: var(--vp-c-brand-1);
+}
+
+/* 「章」下属子项容器（容纳各节 1.1, 1.2... 树状导引线） */
+.VPSidebarItem.level-0 > .items {
+  border-left: 1.5px solid var(--vp-c-divider) !important;
+  margin-left: 14px;
+  padding-left: 8px !important;
+  padding-top: 2px;
+  padding-bottom: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   3. 第二层级：「节」(Level 1 - Section Link)
+   精致阅读文章链接：清爽紧凑、激活胶囊指示
+   -------------------------------------------------------------------------- */
+.VPSidebarItem.level-1 {
+  margin: 2px 0;
+}
+
+.VPSidebarItem.level-1 > .item {
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.VPSidebarItem.level-1 > .item .link {
+  padding: 4px 8px;
+}
+
+.VPSidebarItem.level-1 > .item .text {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--vp-c-text-2) !important;
+  line-height: 20px;
+  padding: 1px 0;
+}
+
+/* 「节」悬浮效果 */
+.VPSidebarItem.level-1:hover > .item {
+  background: var(--vp-c-default-soft);
+}
+
+.VPSidebarItem.level-1:hover > .item .text {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* 「节」当前阅读激活态 (Active) */
+.VPSidebarItem.level-1.is-active > .item {
+  background: var(--vp-c-brand-soft);
+}
+
+.VPSidebarItem.level-1.is-active > .item .text {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600 !important;
+}
+
+.VPSidebarItem.level-1.is-active > .item > .indicator {
+  background-color: var(--vp-c-brand-1) !important;
+  width: 3px;
+  left: -10px;
+  border-radius: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   5. 特殊直链项兼容（如前言大纲、附录与后记直链）
+   -------------------------------------------------------------------------- */
+.VPSidebarItem.level-1.is-link > .item {
+  border-radius: 6px;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+}
+
+.VPSidebarItem.level-1.is-link > .item .text {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--vp-c-text-2) !important;
+}
+
+.VPSidebarItem.level-1.is-link:hover > .item {
+  background: var(--vp-c-default-soft);
+}
+
+.VPSidebarItem.level-1.is-link:hover > .item .text {
+  color: var(--vp-c-brand-1) !important;
+}
+
+.VPSidebarItem.level-1.is-link.is-active > .item {
+  background: var(--vp-c-brand-soft);
+}
+
+.VPSidebarItem.level-1.is-link.is-active > .item .text {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600 !important;
+}
+
+.VPSidebarItem.level-1.is-link.is-active > .item > .indicator {
+  background-color: var(--vp-c-brand-1) !important;
+  width: 3px;
+  left: -11px;
+  border-radius: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Mermaid 图表容器与渲染优化
+   -------------------------------------------------------------------------- */
+div.language-mermaid.mermaid-rendered {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: var(--vp-c-bg-alt) !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  border-radius: 14px !important;
+  padding: 24px 16px !important;
+  margin: 20px 0 !important;
+  overflow-x: auto !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+div.language-mermaid.mermaid-rendered .mermaid-svg-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+div.language-mermaid.mermaid-rendered svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 隐藏原本代码块右上角的复制按钮和语言标签 */
+div.language-mermaid.mermaid-rendered > button.copy,
+div.language-mermaid.mermaid-rendered > span.lang {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. 侧边栏折叠收起与正文区域自适应宽度 (Sidebar Collapse & Reading Width Expansion)
+   -------------------------------------------------------------------------- */
+
+/* 7.1 平滑过渡动画基准 (Smooth Layout Transitions) */
+@media (min-width: 960px) {
+  .VPSidebar {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .VPContent.has-sidebar {
+    transition: padding-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                padding-right 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .VPDoc .container,
+  .VPDoc .content,
+  .VPDoc .content-container {
+    transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                width 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+}
+
+/* 7.2 折叠状态：隐藏侧边栏 (Hide Sidebar when Collapsed) */
+@media (min-width: 960px) {
+  html.sidebar-collapsed .VPSidebar {
+    transform: translateX(-105%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* 7.3 折叠状态：主阅读区域拓宽自适应 (Expanded Middle Reading Area) */
+@media (min-width: 960px) {
+  /* 取消左侧原本为侧边栏预留的 272px 边距，令正文向全屏自由伸展 */
+  html.sidebar-collapsed .VPContent.has-sidebar {
+    padding-left: 0 !important;
+  }
+
+  /* 居中并放宽主页面容器 */
+  html.sidebar-collapsed .VPDoc .container {
+    display: flex !important;
+    justify-content: center !important;
+    max-width: 1260px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 扩展正文中间内容列 */
+  html.sidebar-collapsed .VPDoc .content {
+    max-width: 920px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 当有右侧目录（has-aside）时，正文由原本紧绷的 688px 扩展至沉浸大气的 880px */
+  html.sidebar-collapsed .VPDoc.has-aside .content-container {
+    max-width: 880px !important;
+  }
+
+  /* 当无右侧目录时，正文充分延展至 960px */
+  html.sidebar-collapsed .VPDoc:not(.has-aside) .content-container {
+    max-width: 960px !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  /* 宽屏与超宽屏下：保持优雅居中与对称呼吸感 */
+  html.sidebar-collapsed .VPContent.has-sidebar {
+    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
+    padding-right: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
+  }
+
+  html.sidebar-collapsed .VPDoc .container {
+    max-width: 1360px !important;
+  }
+
+  html.sidebar-collapsed .VPDoc .content {
+    max-width: 960px !important;
+  }
+
+  html.sidebar-collapsed .VPDoc.has-aside .content-container {
+    max-width: 900px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. 顶部导航栏背景防护与吸顶遮蔽 (Navbar Solid Background & Mask)
+   彻底解决侧边栏折叠后页面向上滚动时，正文内容透过导航栏左上角透视出来的透明 Bug
+   -------------------------------------------------------------------------- */
+@media (min-width: 960px) {
+  /* 折叠状态下导航栏各级容器强制使用坚实背景色，遮蔽向上滚动的正文 */
+  html.sidebar-collapsed .VPNav,
+  html.sidebar-collapsed .VPNavBar,
+  html.sidebar-collapsed .VPNavBar.has-sidebar,
+  html.sidebar-collapsed .VPNavBar.has-sidebar .wrapper,
+  html.sidebar-collapsed .VPNavBar.has-sidebar .container,
+  html.sidebar-collapsed .VPNavBar.has-sidebar .title,
+  html.sidebar-collapsed .VPNavBar.has-sidebar .content-body {
+    background-color: var(--vp-nav-bg-color) !important;
+  }
+
+  /* 顶部导航栏底部分割线通栏贯穿 */
+  html.sidebar-collapsed .VPNavBar {
+    border-bottom: 1px solid var(--vp-c-divider) !important;
+  }
+
+  /* 折叠状态下重置 title 宽度为自适应，为右侧展开按钮提供宽裕排版空间 */
+  html.sidebar-collapsed .VPNavBar.has-sidebar .title {
+    width: auto !important;
+    max-width: 500px !important;
+  }
+
+  /* 导航栏 title 区域设为 flex 布局，使标题与展开按钮并排显示 */
+  .VPNavBar .title {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .VPNavBarTitle {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    width: auto !important;
+  }
+
+  .VPNavBarTitle .title {
+    width: auto !important;
+  }
+
+  .nav-sidebar-expand-btn {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* 消除折叠状态下 title 内部原本残留的局部下划线 */
+  html.sidebar-collapsed .VPNavBarTitle.has-sidebar .title {
+    border-bottom-color: transparent !important;
+  }
+}
+
+
+
+
